@@ -3,8 +3,12 @@ const endPoint = 'pokemon/';
 
 const fetchApiPokemon = async (pokemon) => {
   const url = `${apiUrl}${endPoint}${pokemon}`;
-  const response = await fetch(url);
-  const value = await response.json();
+  try {
+    const response = await fetch(url);
+    const value = await response.json();
 
-  return value;
+    return value;
+  } catch (error) {
+    throw new Error('Nome inválido');
+  }
 };
