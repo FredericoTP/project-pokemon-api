@@ -5,6 +5,18 @@ const sectionPokemonInfo = document.getElementById('info-pokemon');
 
 
 
+const renderTypes = (types) => {
+  const divCard = document.querySelector('.card');
+  const createUl = document.createElement('ul');
+  createUl.classList.add('list-group', 'list-group-flush');
+  divCard.appendChild(createUl);
+  const createLi = document.createElement('li');
+  createLi.classList.add('list-group-item')
+  const typeName = types.reduce((acc, curr) => `${acc}, ${curr}`);
+  createLi.innerText = `Tipo: ${typeName}`;
+  createUl.appendChild(createLi);
+};
+
 const renderNamePokemon = (name) => {
   const divCard = document.querySelector('.card');
   const createDiv = document.createElement('div');
@@ -51,6 +63,7 @@ const renderRates = (pokemonObj) => {
   const sprite = pokemonSprites(sprites);
   renderPokemon(name, sprite);
   renderTypes(type);
+  renderHeight(height);
 };
 
 const handleSearchEvent = async () => {
