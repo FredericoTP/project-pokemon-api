@@ -45,9 +45,23 @@ const renderNamePokemon = (name) => {
   divCard.appendChild(createDiv);
 };
 
+const renderImage = (sprite) => {
+  const divCard = document.querySelector('.card');
+  const createImg = document.createElement('img');
+    createImg.classList.add('card-img-top');
+    createImg.src = sprite;
+    createImg.alt = 'Imagem do pokemon'
+    divCard.appendChild(createImg);
+};
+
 const renderImagePokemon = (sprites) => {
+  if(typeof sprites === 'string') {
+    renderImage(sprites);
+    return;
+  }
+
+  const divCard = document.querySelector('.card');
   sprites.forEach((sprite) => {
-    const divCard = document.querySelector('.card');
     const createImg = document.createElement('img');
     createImg.classList.add('card-img-top');
     createImg.src = sprite;
@@ -65,9 +79,15 @@ const renderPokemon = (name, sprites) => {
 };
 
 const pokemonSprites = (sprites) => {
-  const { front_default, front_shiny } = sprites;
-  const sprite = [front_default, front_shiny];
+  const { front_default, front_shiny, other } = sprites;
+  const artwork = other['official-artwork'];
 
+  if (front_default === null) {
+    return artwork.front_default;
+  }
+
+  const sprite = [front_default, front_shiny];
+  
   return sprite;
 }
 
@@ -85,8 +105,14 @@ const renderRates = (pokemonObj) => {
 
 const handleSearchEvent = async () => {
   const pokemonName = inputPokemonName.value;
+
+  if(!pokemonName) {
+    throw new Error('Coloque um nome');
+  }
+
   const pokemonObj = await fetchApiPokemon(pokemonName);
 
+  sectionPokemonInfo.innerText = '';
   renderRates(pokemonObj);
 };
 
