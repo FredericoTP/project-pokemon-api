@@ -3,7 +3,14 @@ const searchButton = document.getElementById('btn-search');
 const randomButton = document.getElementById('btn-random');
 const sectionPokemonInfo = document.getElementById('info-pokemon');
 
-
+const renderHeight = (height) => {
+  const ulElement = document.querySelector('.list-group');
+  const createLi = document.createElement('li');
+  createLi.classList.add('list-group-item');
+  const toMetres = height * 0.1;
+  createLi.innerText = `Altura: ${toMetres.toFixed(2)}m`;
+  ulElement.appendChild(createLi);
+};
 
 const renderTypes = (types) => {
   const divCard = document.querySelector('.card');
