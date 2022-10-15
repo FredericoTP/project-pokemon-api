@@ -3,6 +3,15 @@ const searchButton = document.getElementById('btn-search');
 const randomButton = document.getElementById('btn-random');
 const sectionPokemonInfo = document.getElementById('info-pokemon');
 
+const renderWeight = (weight) => {
+  const ulElement = document.querySelector('.list-group');
+  const createLi = document.createElement('li');
+  createLi.classList.add('list-group-item');
+  const toKilo = weight * 0.1;
+  createLi.innerText = `Peso: ${toKilo.toFixed(2)}kg`;
+  ulElement.appendChild(createLi);
+};
+
 const renderHeight = (height) => {
   const ulElement = document.querySelector('.list-group');
   const createLi = document.createElement('li');
@@ -71,6 +80,7 @@ const renderRates = (pokemonObj) => {
   renderPokemon(name, sprite);
   renderTypes(type);
   renderHeight(height);
+  renderWeight(weight);
 };
 
 const handleSearchEvent = async () => {
