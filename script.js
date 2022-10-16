@@ -62,12 +62,15 @@ const renderImagePokemon = (sprites) => {
   }
 
   const divCard = document.querySelector('.card');
+  const createDiv = document.createElement('div');
+  createDiv.classList.add('images');
+  divCard.appendChild(createDiv)
   sprites.forEach((sprite) => {
     const createImg = document.createElement('img');
     createImg.classList.add('card-img-top');
     createImg.src = sprite;
     createImg.alt = 'Imagem do pokemon'
-    divCard.appendChild(createImg);
+    createDiv.appendChild(createImg);
   });
 };
 
@@ -116,6 +119,7 @@ const handleSearchEvent = async () => {
     renderRates(pokemonObj);
   } catch (erro) {
     infoP.innerText = erro.message;
+    sectionPokemonInfo.innerText = '';
   }
 };
 
@@ -125,6 +129,7 @@ const handleRandomEvent = async () => {
   const pokemonIdRandom = randomId();
   const pokemonObj = await fetchApiPokemon(pokemonIdRandom);
   sectionPokemonInfo.innerText = '';
+  infoP.innerHTML = '';
   renderRates(pokemonObj);
 };
 
