@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <script src="api.js"></script>
   <script defer src="script.js"></script>
 </head>
+
 <body>
-  <header id="header"></header>
+
+  <header id="header">
+    <img src="./images/40cd11b67d1baf6a0f1d1f5bb0465387.png" alt="Logo PokeBusca">
+    <img src="./images/pngegg.png" alt="Pikachu">
+  </header>
+
   <main>
-    <section>
+    <section id="section-input" class="form-group">
       <label for="pokemon-name">Nome do pokemon:</label>
-      <input type="text" placeholder="pokemon" id="pokemon-name">
+      <input type="text" placeholder="pokemon" id="pokemon-name" class="form-control">
     </section>
-    <section>
-      <button id="btn-search">Pesquisar</button>
-      <button id="btn-random">Pokemon Aleatório</button>
+
+    <section id="section-info">
+      <p id="info-paragraph"></p>
     </section>
+
+    <section id="section-btn">
+      <button id="btn-search" class="btn btn-dark">Pesquisar</button>
+      <button id="btn-random" class="btn btn-dark">Pokemon Aleatório</button>
+    </section>
+
     <section id="info-pokemon"></section>
   </main>
+
 </body>
+
 </html>

@@ -1,3 +1,63 @@
 * {
   margin: 0;
 }
+
+html {
+  background-color: snow;
+}
+
+#header {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100px;
+  justify-content: center;
+  background-color: bisque;
+}
+
+#header img {
+  height: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+main {
+  background-color: snow;
+}
+
+#section-input {
+  width: 20%;
+  margin: auto;
+  padding: 20px 0;
+  font-weight: 900;
+  font-size: larger;
+}
+
+#section-info {
+  width: 20%;
+  margin: auto;
+  font-weight: 900;
+  color: red;
+  font-style: italic;
+}
+
+#section-btn {
+  width: 20%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+#info-pokemon {
+  width: 30%;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.card {
+  width: 20rem;
+  margin: auto;
+}
+
+.images {
+  display: flex;
+}
