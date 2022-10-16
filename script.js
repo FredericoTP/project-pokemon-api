@@ -116,7 +116,7 @@ const handleSearchEvent = async () => {
   renderRates(pokemonObj);
 };
 
-
+const randomId = () => Math.floor(Math.random() * 905) + 1;
 
 const handleRandomEvent = async () => {
   const pokemonIdRandom = randomId();
