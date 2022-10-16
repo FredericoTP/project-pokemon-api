@@ -2,6 +2,7 @@ const inputPokemonName = document.getElementById('pokemon-name');
 const searchButton = document.getElementById('btn-search');
 const randomButton = document.getElementById('btn-random');
 const sectionPokemonInfo = document.getElementById('info-pokemon');
+const infoP = document.getElementById('info-paragraph');
 
 const renderWeight = (weight) => {
   const ulElement = document.querySelector('.list-group');
@@ -48,14 +49,14 @@ const renderNamePokemon = (name) => {
 const renderImage = (sprite) => {
   const divCard = document.querySelector('.card');
   const createImg = document.createElement('img');
-    createImg.classList.add('card-img-top');
-    createImg.src = sprite;
-    createImg.alt = 'Imagem do pokemon'
-    divCard.appendChild(createImg);
+  createImg.classList.add('card-img-top');
+  createImg.src = sprite;
+  createImg.alt = 'Imagem do pokemon'
+  divCard.appendChild(createImg);
 };
 
 const renderImagePokemon = (sprites) => {
-  if(typeof sprites === 'string') {
+  if (typeof sprites === 'string') {
     renderImage(sprites);
     return;
   }
@@ -87,7 +88,7 @@ const pokemonSprites = (sprites) => {
   }
 
   const sprite = [front_default, front_shiny];
-  
+
   return sprite;
 }
 
@@ -104,16 +105,18 @@ const renderRates = (pokemonObj) => {
 };
 
 const handleSearchEvent = async () => {
-  const pokemonName = inputPokemonName.value;
-
-  if(!pokemonName) {
-    throw new Error('Coloque um nome');
+  try {
+    const pokemonName = inputPokemonName.value.toLowerCase();
+    if (!pokemonName) {
+      throw new Error('Coloque um nome');
+    }
+    const pokemonObj = await fetchApiPokemon(pokemonName);
+    infoP.innerHTML = '';
+    sectionPokemonInfo.innerText = '';
+    renderRates(pokemonObj);
+  } catch (erro) {
+    infoP.innerText = erro.message;
   }
-
-  const pokemonObj = await fetchApiPokemon(pokemonName);
-
-  sectionPokemonInfo.innerText = '';
-  renderRates(pokemonObj);
 };
 
 const randomId = () => Math.floor(Math.random() * 905) + 1;

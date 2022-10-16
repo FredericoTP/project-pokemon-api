@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,18 +10,23 @@
   <script src="api.js"></script>
   <script defer src="script.js"></script>
 </head>
+
 <body>
   <header id="header"></header>
   <main>
-    <section>
+    <section id="section-input">
       <label for="pokemon-name">Nome do pokemon:</label>
       <input type="text" placeholder="pokemon" id="pokemon-name">
     </section>
-    <section>
+    <section id="section-info">
+      <p id="info-paragraph"></p>
+    </section>
+    <section id="section-btn">
       <button id="btn-search">Pesquisar</button>
       <button id="btn-random">Pokemon Aleatório</button>
     </section>
     <section id="info-pokemon"></section>
   </main>
 </body>
+
 </html>
