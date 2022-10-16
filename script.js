@@ -116,10 +116,24 @@ const handleSearchEvent = async () => {
   renderRates(pokemonObj);
 };
 
+
+
+const handleRandomEvent = async () => {
+  const pokemonIdRandom = randomId();
+  const pokemonObj = await fetchApiPokemon(pokemonIdRandom);
+  sectionPokemonInfo.innerText = '';
+  renderRates(pokemonObj);
+};
+
 const addEventSearchButton = () => {
   searchButton.addEventListener('click', handleSearchEvent);
 };
 
+const addEventRandomButton = () => {
+  randomButton.addEventListener('click', handleRandomEvent);
+};
+
 window.onload = () => {
   addEventSearchButton();
+  addEventRandomButton();
 };
