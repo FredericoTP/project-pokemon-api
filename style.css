@@ -80,3 +80,37 @@ main {
 .images {
   display: flex;
 }
+
+@media screen and (max-width: 400px) {
+  #images-header {
+    width: 70%;
+  }
+
+  #section-input {
+    width: 90%;
+    font-size: medium;
+  }
+
+  #section-btn {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #section-btn button {
+    font-size: smaller;
+    margin: 0;
+  }
+
+  #info-pokemon {
+    max-width: 90%;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .card-img-top {
+    max-width: 50%;
+  }
+}
